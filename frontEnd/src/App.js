@@ -7,7 +7,7 @@ import {
 import React, { useState } from "react";
 
 import Sidebar from "./components/Sidebar";
-import Header from "./components/homepage/Header";
+
 import PortfolioSnapshot from "./components/homepage/PortfolioSnapshot";
 import FeaturedBonds from "./components/homepage/FeaturedBonds";
 import QuickActions from "./components/homepage/QuickActions";
@@ -15,6 +15,11 @@ import BondDiscovery from "./components/discoverPage/BondDiscovery";
 import PortfolioDashboard from "./components/portfolioPage/PortfolioPage";
 import LoginPage from "./components/auth/Login";
 import SignupStepper from "./components/auth/SignUpPage";
+import AuctionList from "./components/auctionPage/AuctionList";
+import AuctionDetails from "./components/auctionPage/AuctionDetails";
+import Header from "./components/Header";
+import AuctionLive from "./components/auctionPage/AuctionLive";
+import RFQPage from "./components/rfq/RFQ";
 
 function AppLayout({ children, currentPage }) {
   const navigate = useNavigate();
@@ -83,10 +88,46 @@ function App() {
         />
 
         <Route
+          path="/auctions"
+          element={
+            <AppLayout currentPage="auctions">
+              <AuctionList />
+            </AppLayout>
+          }
+        />
+
+        <Route
+          path="/auction-live"
+          element={
+            <AppLayout currentPage="auction-live">
+              <AuctionLive />
+            </AppLayout>
+          }
+        />
+
+        <Route
+          path="/rfq"
+          element={
+            <AppLayout currentPage="rfq">
+              <RFQPage />
+            </AppLayout>
+          }
+        />
+
+        <Route
           path="/settings"
           element={
             <AppLayout currentPage="settings">
               <div>Settings Page (placeholder)</div>
+            </AppLayout>
+          }
+        />
+
+        <Route
+          path="/auctions/:id"
+          element={
+            <AppLayout currentPage="auctions">
+              <AuctionDetails />
             </AppLayout>
           }
         />

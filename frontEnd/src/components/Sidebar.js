@@ -29,6 +29,12 @@ function Sidebar({ currentPage, onNavigate }) {
           active={currentPage === "rfqs"}
           onClick={() => onNavigate("rfqs")}
         />
+        <NavItem
+          icon={<FileText size={18} />}
+          label="Auctions"
+          active={currentPage === "auctions"}
+          onClick={() => onNavigate("auctions")}
+        />
       </nav>
       <NavItem
         icon={<Settings size={18} />}
