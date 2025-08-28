@@ -1,4 +1,4 @@
-// src/components/auctionPage/BondSplitVisualization.js
+// src/components/userDashboard/auctionPage/BondSplitVisualization.js
 import React from "react";
 
 export default function BondSplitVisualization({

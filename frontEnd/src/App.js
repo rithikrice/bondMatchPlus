@@ -6,20 +6,24 @@ import {
 } from "react-router-dom";
 import React, { useState } from "react";
 
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/userDashboard/Sidebar";
 
-import PortfolioSnapshot from "./components/homepage/PortfolioSnapshot";
-import FeaturedBonds from "./components/homepage/FeaturedBonds";
-import QuickActions from "./components/homepage/QuickActions";
-import BondDiscovery from "./components/discoverPage/BondDiscovery";
-import PortfolioDashboard from "./components/portfolioPage/PortfolioPage";
-import LoginPage from "./components/auth/Login";
-import SignupStepper from "./components/auth/SignUpPage";
-import AuctionList from "./components/auctionPage/AuctionList";
-import AuctionDetails from "./components/auctionPage/AuctionDetails";
-import Header from "./components/Header";
-import AuctionLive from "./components/auctionPage/AuctionLive";
-import RFQPage from "./components/rfq/RFQ";
+import PortfolioSnapshot from "./components/userDashboard/homepage/PortfolioSnapshot";
+import FeaturedBonds from "./components/userDashboard/homepage/FeaturedBonds";
+import QuickActions from "./components/userDashboard/homepage/QuickActions";
+import BondDiscovery from "./components/userDashboard/discoverPage/BondDiscovery";
+import PortfolioDashboard from "./components/userDashboard/portfolioPage/PortfolioPage";
+import LoginPage from "./components/userDashboard/auth/Login";
+import SignupStepper from "./components/userDashboard/auth/SignUpPage";
+import AuctionList from "./components/userDashboard/auctionPage/AuctionList";
+import AuctionDetails from "./components/userDashboard/auctionPage/AuctionDetails";
+import Header from "./components/userDashboard/Header";
+import AuctionLive from "./components/userDashboard/auctionPage/AuctionLive";
+import RFQPage from "./components/userDashboard/rfq/RFQ";
+import SupervisorHome from "./components/supervisorDashboard/homePage/SupervisorHome";
+import SupervisorLayout from "./components/supervisorDashboard/SupervisorLayout";
+import SupervisorBondsPage from "./components/supervisorDashboard/bondsPage/BondsListPage";
+import BondDetailPage from "./components/supervisorDashboard/bondsPage/BondDetailsPage";
 
 function AppLayout({ children, currentPage }) {
   const navigate = useNavigate();
@@ -46,7 +50,6 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupStepper />} />
-
         <Route
           path="/home"
           element={
@@ -59,7 +62,6 @@ function App() {
             </AppLayout>
           }
         />
-
         <Route
           path="/discover"
           element={
@@ -68,7 +70,6 @@ function App() {
             </AppLayout>
           }
         />
-
         <Route
           path="/portfolio"
           element={
@@ -77,16 +78,6 @@ function App() {
             </AppLayout>
           }
         />
-
-        <Route
-          path="/rfqs"
-          element={
-            <AppLayout currentPage="rfqs">
-              <div>RFQs Page (placeholder)</div>
-            </AppLayout>
-          }
-        />
-
         <Route
           path="/auctions"
           element={
@@ -95,7 +86,6 @@ function App() {
             </AppLayout>
           }
         />
-
         <Route
           path="/auction-live"
           element={
@@ -104,7 +94,6 @@ function App() {
             </AppLayout>
           }
         />
-
         <Route
           path="/rfq"
           element={
@@ -113,7 +102,6 @@ function App() {
             </AppLayout>
           }
         />
-
         <Route
           path="/settings"
           element={
@@ -122,7 +110,6 @@ function App() {
             </AppLayout>
           }
         />
-
         <Route
           path="/auctions/:id"
           element={
@@ -131,6 +118,30 @@ function App() {
             </AppLayout>
           }
         />
+        <Route
+          path="/supervisor/home"
+          element={
+            <SupervisorLayout currentPage="supervisor-home">
+              <SupervisorHome />
+            </SupervisorLayout>
+          }
+        />
+        <Route
+          path="/supervisor/bonds"
+          element={
+            <SupervisorLayout currentPage="supervisor-bonds">
+              <SupervisorBondsPage />
+            </SupervisorLayout>
+          }
+        />
+        <Route
+          path="/supervisor/bonds/:isin"
+          element={
+            <SupervisorLayout currentPage="supervisor-bonds">
+              <BondDetailPage />
+            </SupervisorLayout>
+          }
+        />{" "}
       </Routes>
     </Router>
   );
