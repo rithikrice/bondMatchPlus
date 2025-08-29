@@ -24,6 +24,8 @@ import SupervisorHome from "./components/supervisorDashboard/homePage/Supervisor
 import SupervisorLayout from "./components/supervisorDashboard/SupervisorLayout";
 import SupervisorBondsPage from "./components/supervisorDashboard/bondsPage/BondsListPage";
 import BondDetailPage from "./components/supervisorDashboard/bondsPage/BondDetailsPage";
+import SupervisorAuctionList from "./components/supervisorDashboard/auctionPage/SupervisorAuctionListPage";
+import SupervisorAuctionDetailPage from "./components/supervisorDashboard/auctionPage/SupervisorAuctionDetailPage";
 
 function AppLayout({ children, currentPage }) {
   const navigate = useNavigate();
@@ -141,7 +143,25 @@ function App() {
               <BondDetailPage />
             </SupervisorLayout>
           }
-        />{" "}
+        />
+
+        <Route
+          path="/supervisor/auctions"
+          element={
+            <SupervisorLayout currentPage="supervisor-auctions">
+              <SupervisorAuctionList />
+            </SupervisorLayout>
+          }
+        />
+
+        <Route
+          path="/supervisor/auctions/:id"
+          element={
+            <SupervisorLayout currentPage="supervisor-auctions">
+              <SupervisorAuctionDetailPage />
+            </SupervisorLayout>
+          }
+        />
       </Routes>
     </Router>
   );
