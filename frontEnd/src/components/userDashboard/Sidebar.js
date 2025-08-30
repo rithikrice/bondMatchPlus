@@ -30,6 +30,12 @@ function Sidebar({ currentPage, onNavigate }) {
           active={currentPage === "auctions"}
           onClick={() => onNavigate("auctions")}
         />
+        <NavItem
+          icon={<FileText size={18} />}
+          label="Chat"
+          active={currentPage === "chat"}
+          onClick={() => onNavigate("chat")}
+        />
       </nav>
       <NavItem
         icon={<Settings size={18} />}

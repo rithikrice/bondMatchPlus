@@ -51,6 +51,12 @@ export default function SupervisorSidebar({ currentPage, onNavigate }) {
           active={currentPage === "profile"}
           onClick={() => onNavigate("profile")}
         />
+        <NavItem
+          icon={User}
+          label="AIChat"
+          active={currentPage === "chat"}
+          onClick={() => onNavigate("chat")}
+        />
       </nav>
       <div className="mt-auto text-xs text-white/70 px-2">Settings</div>
     </aside>

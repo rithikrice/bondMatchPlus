@@ -26,6 +26,7 @@ import SupervisorBondsPage from "./components/supervisorDashboard/bondsPage/Bond
 import BondDetailPage from "./components/supervisorDashboard/bondsPage/BondDetailsPage";
 import SupervisorAuctionList from "./components/supervisorDashboard/auctionPage/SupervisorAuctionListPage";
 import SupervisorAuctionDetailPage from "./components/supervisorDashboard/auctionPage/SupervisorAuctionDetailPage";
+import AIChat from "./components/supervisorDashboard/AIChat";
 
 function AppLayout({ children, currentPage }) {
   const navigate = useNavigate();
@@ -121,6 +122,14 @@ function App() {
           }
         />
         <Route
+          path="/chat"
+          element={
+            <AppLayout currentPage="chat">
+              <AIChat mode="user" />
+            </AppLayout>
+          }
+        />
+        <Route
           path="/supervisor/home"
           element={
             <SupervisorLayout currentPage="supervisor-home">
@@ -159,6 +168,15 @@ function App() {
           element={
             <SupervisorLayout currentPage="supervisor-auctions">
               <SupervisorAuctionDetailPage />
+            </SupervisorLayout>
+          }
+        />
+
+        <Route
+          path="/supervisor/chat"
+          element={
+            <SupervisorLayout currentPage="chat">
+              <AIChat mode="supervisor" />
             </SupervisorLayout>
           }
         />
